@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safety Standdown – Torque/Tension Dry Run</title>
+  <meta name="description" content="Online Safety Standdown: Torque/Tension Dry Run" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 1 — START SCREEN
+       ══════════════════════════════════════════════ -->
+  <section id="section-start" class="section active">
+    <div class="card start-card fade-in">
+      <div class="start-logo">🛡️</div>
+      <p class="start-eyebrow">Online Safety Training</p>
+      <h1 class="start-title">Safety Standdown<br>Torque/Tension Dry Run</h1>
+      <div class="start-divider"></div>
+      <p class="start-subtitle">
+        A proactive "Dry Run" activity to verify critical controls, reinforce
+        expectations, and gather field feedback to prevent injury during
+        torque and tension operations.
+      </p>
+      <div class="start-form">
+        <label for="participant-name">Your Full Name</label>
+        <input type="text" id="participant-name" placeholder="e.g. Jane Smith"
+               autocomplete="name" maxlength="80" />
+        <button id="btn-start" class="btn btn-primary btn-full">
+          Start Training →
+        </button>
+      </div>
+      <div class="start-info">
+        <div class="start-info-item">
+          <span class="info-num">9</span>
+          <span class="info-label">Slides</span>
+        </div>
+        <div class="start-info-item">
+          <span class="info-num">4</span>
+          <span class="info-label">Quizzes</span>
+        </div>
+        <div class="start-info-item">
+          <span class="info-num">100%</span>
+          <span class="info-label">To Pass Each</span>
+        </div>
+        <div class="start-info-item">
+          <span class="info-num">~15m</span>
+          <span class="info-label">Duration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 2 — SLIDES
+       ══════════════════════════════════════════════ -->
+  <section id="section-slides" class="section">
+    <div class="section-meta">
+      <span>Training Content</span>
+      <span id="slide-counter">Slide 1 of 9</span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar" id="slide-progress-bar"></div>
+    </div>
+    <div class="card" id="slide-card">
+      <div class="slide-header">
+        <span class="slide-step-pill">Training</span>
+      </div>
+      <h2 class="slide-title" id="slide-title">Slide Title</h2>
+      <div class="slide-content" id="slide-content"></div>
+      <div class="slide-note" id="slide-note" style="display:none;"></div>
+      <div class="nav-row">
+        <button id="btn-slide-back" class="btn btn-secondary" disabled>← Back</button>
+        <button id="btn-slide-next" class="btn btn-primary">Next →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 3 — QUIZ
+       ══════════════════════════════════════════════ -->
+  <section id="section-quiz" class="section">
+    <div class="section-meta">
+      <span>Knowledge Check</span>
+      <span>Must answer correctly to proceed</span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar" style="width:100%; background: var(--gold);"></div>
+    </div>
+    <div class="card" id="quiz-card">
+      <div class="quiz-header">
+        <span class="quiz-step-pill">Quiz</span>
+      </div>
+      <span id="quiz-type-badge" class="type-badge badge-multi">Select all that apply</span>
+      <p class="quiz-question" id="quiz-question">Question text</p>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-validation" id="quiz-validation" style="display:none;">
+        ⚠ Please select at least one answer before submitting.
+      </div>
+      <div class="nav-row">
+        <button id="btn-quiz-back" class="btn btn-secondary">← Back</button>
+        <button id="btn-quiz-next" class="btn btn-primary">Submit Answer</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 4 — RESULT (correct / incorrect)
+       ══════════════════════════════════════════════ -->
+  <section id="section-result" class="section">
+    <div class="card result-card fade-in" id="result-card">
+      <div class="result-icon" id="result-icon">✅</div>
+      <h2 class="result-title" id="result-title">Correct!</h2>
+      <p class="result-msg" id="result-msg"></p>
+      <div class="result-review" id="result-review" style="display:none;"></div>
+      <div class="nav-row" style="justify-content:flex-end;">
+        <button id="btn-result-next" class="btn btn-primary">Continue →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 5 — FEEDBACK
+       ══════════════════════════════════════════════ -->
+  <section id="section-feedback" class="section">
+    <div class="section-meta">
+      <span>Technician Feedback</span>
+      <span>Required</span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar" style="width:95%; background: var(--gold);"></div>
+    </div>
+    <div class="card" id="feedback-card">
+      <div class="slide-header">
+        <span class="slide-step-pill" style="background:var(--gold);">Feedback</span>
+      </div>
+      <h2 class="slide-title">Technician Engagement</h2>
+      <p style="color:var(--text-mid); font-size:0.9rem; margin-bottom:1.5rem;">
+        Your responses will be captured on your certificate and shared with your supervisor.
+        You may skip a question if it does not apply.
+      </p>
+      <div id="feedback-fields"></div>
+      <div class="nav-row">
+        <button id="btn-feedback-back" class="btn btn-secondary">← Back</button>
+        <button id="btn-feedback-next" class="btn btn-primary">Continue →</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════
+       SECTION 6 — CERTIFICATE
+       ══════════════════════════════════════════════ -->
+  <section id="section-cert" class="section">
+    <div class="cert-outer fade-in">
+      <p>🎉 Congratulations — standdown complete! Your certificate is ready.</p>
+
+      <div id="certificate-card">
+        <div class="cert-seal">🏅</div>
+        <p class="cert-eyebrow">Certificate of Completion</p>
+        <h2 class="cert-headline">This certifies that</h2>
+        <p class="cert-issued-to">Name</p>
+        <p class="cert-name" id="cert-name">Participant Name</p>
+        <p class="cert-description">has successfully completed the</p>
+        <p class="cert-training-title" id="cert-title">Safety Standdown – Torque/Tension Dry Run</p>
+        <p class="cert-description" style="font-size:0.82rem; color:var(--text-light);">
+          demonstrating understanding of proper equipment inspection,<br>
+          safe use practices, and compliance requirements.
+        </p>
+        <div class="cert-rule"></div>
+        <div class="cert-meta">
+          <div class="cert-meta-item">
+            <p class="cert-meta-label">Completion Date</p>
+            <p class="cert-meta-value" id="cert-date">—</p>
+          </div>
+          <div class="cert-meta-item">
+            <p class="cert-meta-label">Result</p>
+            <p class="cert-meta-value">✅ Passed</p>
+          </div>
+        </div>
+        <!-- Feedback section on certificate -->
+        <div id="cert-feedback" class="cert-feedback-block" style="display:none;"></div>
+      </div>
+
+      <div class="cert-actions">
+        <button id="btn-download-cert" class="btn btn-gold">
+          ⬇ Download Certificate (PDF)
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#app -->
+
+<!-- CDN libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- App scripts: content first, then logic -->
+<script src="js/content.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
