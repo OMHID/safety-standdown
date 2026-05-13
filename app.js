@@ -359,7 +359,7 @@ document.getElementById("btn-download-cert").addEventListener("click", async () 
 
     // ── "CERTIFICATE OF COMPLETION" in header
     pdf.setFont("helvetica", "bold");
-    pdf.setFontSize(36);
+    pdf.setFontSize(32);
     pdf.setTextColor(201, 146, 42);
     pdf.text("CERTIFICATE OF COMPLETION", W / 2, 25, { align: "center" });
 
